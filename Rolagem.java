@@ -26,15 +26,21 @@ public class Rolagem {
 		System.out.println("Dado 5: "+ dadoD[4]);
 		System.out.println("Dado 6: "+ dadoD[5]);
 		
-		System.out.println("Deseja rerolar algum dado? digite 1 para sim e 0 para n„o");
+		System.out.println("Deseja rerolar algum dado? digite 1 para sim e 0 para n√£o");
 		dadoRerolado1 = teclado.nextInt();
 		if(dadoRerolado1 == 1){
-			System.out.println("Quais dados deseja rerolar?");
-			dadosRerolando = teclado.nextInt();
+			int cont = 0;
+			while(cont !=7){
+			System.out.println("Quais dados deseja rerolar? digite 7 para encerrar sua escolha");
+			cont = teclado.nextInt();
+			if(cont == 7){
+				break;
+			}
+			dadosRerolando = cont;
 					int i = dadosRerolando;
 					d1.rolar();
 					dadosParaRerolar[i] = d1.getValor();
-				
+			}
 		}
 		System.out.println("Dados Rerolados: "+dadosParaRerolar[0]);
 		System.out.println("Dados Rerolados: "+dadosParaRerolar[1]);
