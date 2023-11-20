@@ -6,7 +6,7 @@ public class MenuLogin {
 	public static  boolean menu(){
 		while(true){
 	System.out.println("---Bem vindo ao jogo Yahtzee!!---");
-	System.out.println("Você deseja:"
+	System.out.println("VocÃª deseja:"
 			+ "\n1. Login"
 			+ "\n2. Cadastro"
 			+ "\n");
@@ -19,7 +19,7 @@ public class MenuLogin {
 		
 		return true;
 	}else{
-		System.out.println("Valor inválido");
+		System.out.println("Valor invÃ¡lido");
 	}
 		}
 	}
@@ -38,9 +38,9 @@ public class MenuLogin {
 		System.out.println("---Cadastro---");
 		System.out.print("\nNome: ");
 		nome = entrada.nextLine();
-		System.out.print("\nSanha: ");
+		System.out.print("\nSenha: ");
 		senha = entrada.nextLine();
-		//analizar se tem as informações no arquivo e voltar 'true'
+		//analizar se tem as informaÃ§Ãµes no arquivo e voltar 'true'
 		
 	}
 
