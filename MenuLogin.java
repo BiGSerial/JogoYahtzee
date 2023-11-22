@@ -22,18 +22,13 @@ public class MenuLogin {
             
             if (opcao == 1) {
                 if (login()==true) {
-                    System.out.print("\nVocê tem login"); //entrar no jogo
-                    jogo.jogo();
+                    System.out.print("\nVocê tem login"); 
+                    //jogo.jogo(); -> entrar no jogo
                     break;
                 }else {
                 	tentativa++;
-                    System.out.println("Login inválido. Tentativas restantes: " + (2 - tentativa));
-                    login();
-                    if (tentativa >= 2) {
-                        System.out.println("Número máximo de tentativas atingido. Tente se cadastrar e volte.");
-                        cadastro(); 
-                    }                    
-                    
+                    System.out.println("Login inválido, se não tiver tente se cadastrar!");
+                    menu();   
                 }
                 return true;
             } else if (opcao == 2) {
@@ -76,12 +71,11 @@ public class MenuLogin {
 
                 if (nome.equals(infoFunc[0]) && senha.equals(infoFunc[1])) {
                     resultado = true;
-                    break; // Se encontrou o usuário, não precisa continuar o loop
+                    break; 
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace(); // Alterado para imprimir o rastreamento da pilha
-            // Pode ser mais apropriado lançar uma exceção aqui
+            e.printStackTrace();
         } finally {
             if (scanner != null) {
                 scanner.close();
@@ -103,15 +97,14 @@ public class MenuLogin {
 
             System.out.println("---Cadastro---");
             System.out.print("\nNome: ");
-            entrada.nextLine(); // Consumir a quebra de linha pendente
+            entrada.nextLine(); 
             nome = entrada.nextLine();
             System.out.print("\nSenha: ");
             senha = entrada.nextLine();
             infoLogin.println(nome + "/" + senha);
 
         } catch (Exception e) {
-            e.printStackTrace(); // Alterado para imprimir o rastreamento da pilha
-            // Pode ser mais apropriado lançar uma exceção aqui
+            e.printStackTrace();
         } finally {
             if (infoLogin != null) {
                 infoLogin.close();
