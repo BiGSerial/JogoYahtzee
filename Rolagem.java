@@ -297,7 +297,7 @@ public class Rolagem {
 						 contadorDoze = contadorDoze + contador12;
 						 
 					 }
-					 tabelaPontos[9] = contadorDoze;
+					 tabelaPontos[12] = contadorDoze;
 				 }else{
 					 System.out.println("Não há 5 faces iguais");
 				 }
