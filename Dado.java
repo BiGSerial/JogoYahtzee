@@ -1,4 +1,5 @@
 
+
 public class Dado {
 
        private int ValorFace;
