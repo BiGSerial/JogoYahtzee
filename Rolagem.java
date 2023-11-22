@@ -183,7 +183,7 @@ public class Rolagem {
 						 contador7 = dadosParaRerolar[i];
 						 contador71 = contador71 + contador7;
 					 }
-					 System.out.println("O valor é: "+contador71);
+					 tabelaPontos[7] = contador71;
 				 }else {
 					 System.out.println("Não há 3 faces iguais");
 				 }
@@ -219,16 +219,15 @@ public class Rolagem {
 						 contador81 = contador81 + contador8;
 						 
 					 }
-					 System.out.println("O valor é: "+contador81);
+					 tabelaPontos[8] = contador81;
 				 }else{
 					 System.out.println("Não há 4 faces iguais");
 				 }
 				 
 				break;
 				 
-			 case 9:
-				 tabelaPontos[9] = 25;
-				 break;
+			 case 9: 
+				break;
 			 case 10:
 				 // short straight (1, 2, 3, 4; 2, 3, 4, 5; 3, 4, 5, 6;)
 				 if(dadosParaRerolar[0] == 1 && dadosParaRerolar[1] == 2 && dadosParaRerolar[2] == 3 && dadosParaRerolar[3]==4) {
@@ -269,7 +268,39 @@ public class Rolagem {
 				 }
 				 break;
 			 case 12:
-					 tabelaPontos[12] = 50;
+				// cinco dados precisam ter faces iguais, soma de todos 
+				 int numComparativo3;
+				 int contador12 = 0;
+				 int contadorDoze = 0;
+				 int quant111 = 0, quant222 = 0, quant333 = 0, quant444 = 0, quant555 = 0, quant666 = 0;
+				 
+				 for(int i = 0; i<6; i++) {
+					 numComparativo3 = dadosParaRerolar[i];
+					 if(numComparativo3 == 1) {
+						 quant111++;
+					 }else if(numComparativo3 == 2){
+						 quant222++;
+					 }else if(numComparativo3 == 3) {
+						 quant333++;
+					 }else if(numComparativo3 == 4) {
+						 quant444++;
+					 }else if(numComparativo3 == 5) {
+						 quant555++;
+					 }else if(numComparativo3 == 6) {
+						 quant666++;
+					 }
+					 
+				 }
+				 if(quant111>=5 || quant222 >= 5 || quant333 >= 5 || quant444 >= 5 || quant555 >= 5 || quant666 >= 5) {
+					 for(int i = 0; i<6; i++) {
+						 contador12 = dadosParaRerolar[i];
+						 contadorDoze = contadorDoze + contador12;
+						 
+					 }
+					 tabelaPontos[9] = contadorDoze;
+				 }else{
+					 System.out.println("Não há 5 faces iguais");
+				 }
 				 break;
 			 case 13:
 				 // sorte (soma de todos os numeros)
