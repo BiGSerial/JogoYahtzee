@@ -5,9 +5,9 @@ public class MenuPontos {
 	
 	public static void menu1(){
 		int opcao;
+		int tabelaPontos[] = new int[14];
 		Scanner teclado = new Scanner(System.in);
-		do {
-			 System.out.println("0 - Sair");
+		
 			 System.out.println("1 - Soma dos dados com face 1");
 			 System.out.println("2 - Soma dos dados com face 2");
 			 System.out.println("3 - Soma dos dados com face 3");
@@ -23,6 +23,24 @@ public class MenuPontos {
 			 System.out.println("13 - Qualquer combinacao de dados");
 			 opcao = teclado.nextInt();
 			 
-		}while(opcao != 0);
+			 switch(opcao) {
+			 
+			 case 9:
+				 tabelaPontos[9] = 25;
+				 break;
+			 case 10:
+				 tabelaPontos[10] = 30;
+				 break;
+			 case 11:
+				 tabelaPontos[11] = 40;
+				 break;
+			 case 12:
+				 tabelaPontos[12] = 50;
+				 break;
+			 default:
+				 System.out.println("Opcao invalida");
+			 }
+			 
+		
 	}
 }
