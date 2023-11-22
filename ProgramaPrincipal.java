@@ -8,7 +8,7 @@ public class ProgramaPrincipal {
 	public static void main(String[] args) {
 		MenuLogin login = new MenuLogin();
 		
-		System.out.println("\n*** Bem vindo ao jogo Yahtzee!! ***\n");
+		System.out.println("\n*** Bem vindo ao jogo Yahtzee!! ***");
 		
 		int opcao = menuInicial();
 		
@@ -29,9 +29,7 @@ public class ProgramaPrincipal {
 			}
 			opcao = menuInicial();
 		}	
-
 	}
-	
 	public static int menuInicial() {
 		
 		int opcao;
@@ -51,5 +49,3 @@ public class ProgramaPrincipal {
 	}
 		
 }
-
-
