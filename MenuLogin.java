@@ -8,7 +8,7 @@ public class MenuLogin {
 	 static Scanner entrada = new Scanner(System.in);
     public static boolean menu() {
     	ProgramaPrincipal menuPrincipal = new ProgramaPrincipal();
-    	Jogo jogo = new Jogo();
+    	
     	int tentativa=0;
         while (true) {
             System.out.print("\n----------\n"
