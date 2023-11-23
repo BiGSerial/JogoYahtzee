@@ -1,33 +1,31 @@
 package jogo;
-
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class MenuLogin {
-    static Scanner entrada = new Scanner(System.in);
+	static Scanner entrada = new Scanner(System.in);
 
     public static boolean menu() {
-    	ProgramaPrincipal menuPrincipal = new ProgramaPrincipal();
-    	Jogo jogo = new Jogo();
-    	int tentativa=0;
+    	ProgramaPrincipal ProgramaPrincipal = new ProgramaPrincipal();
+
         while (true) {
             System.out.print("\n----------\n"
             		+ "\n1. Login"
             		+ "\n2. Cadastro"
             		+ "\n3. Voltar ao menu inicial"
-            		+ "\nVocê deseja: ");
+            		+ "\nOpcao deseja: ");
             int opcao = entrada.nextInt();
+            
             
             if (opcao == 1) {
                 if (login()==true) {
-                    System.out.print("\nVocê tem login"); 
-                    //jogo.jogo(); -> entrar no jogo
+                    System.out.print("voce tem login"); 
+                    //Rolagem.MenuJogo();  -> entrar no jogo
                     break;
                 }else {
-                	tentativa++;
-                    System.out.println("Login inválido, se não tiver tente se cadastrar!");
+                    System.out.println("Login invalido, se nao tiver tente se cadastrar!");
                     menu();   
                 }
                 return true;
@@ -36,10 +34,11 @@ public class MenuLogin {
             	
                 return true;
             }else if(opcao == 3){
-            	menuPrincipal.menuInicial();
+            	ProgramaPrincipal.menuInicial();
             	
             } else {
-                System.out.println("Valor inválido!!");
+                System.out.println("Valor invalido!!");
+                menu();
                 break;
             }
         }
@@ -52,8 +51,8 @@ public class MenuLogin {
 
         System.out.println("\n---Login---");
         System.out.print("\nNome: ");
-        entrada.nextLine(); // Consumir a quebra de linha pendente
-        nome = entrada.nextLine();
+        entrada.nextLine();
+        nome = entrada.nextLine().toLowerCase();
         System.out.print("\nSenha: ");
         senha = entrada.nextLine();
 
@@ -75,7 +74,7 @@ public class MenuLogin {
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
+        	System.err.println("ERRO");
         } finally {
             if (scanner != null) {
                 scanner.close();
@@ -89,22 +88,20 @@ public class MenuLogin {
         PrintWriter infoLogin = null;
 
         try {
-            // CRIA O ARQUIVO
             FileWriter arquivoLogin = new FileWriter("LoginSenha.txt", true);
 
-            // ESCREVE NO ARQUIVO
             infoLogin = new PrintWriter(arquivoLogin);
 
             System.out.println("---Cadastro---");
             System.out.print("\nNome: ");
             entrada.nextLine(); 
-            nome = entrada.nextLine();
+            nome = entrada.nextLine().toLowerCase();
             System.out.print("\nSenha: ");
             senha = entrada.nextLine();
             infoLogin.println(nome + "/" + senha);
 
         } catch (Exception e) {
-            e.printStackTrace();
+            System.err.println("ERRO");;
         } finally {
             if (infoLogin != null) {
                 infoLogin.close();
@@ -112,6 +109,6 @@ public class MenuLogin {
         }
         System.out.println("Cadastro feito com sucesso ");
     }
-}
 
+}
 
