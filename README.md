@@ -25,3 +25,4 @@ s -> "Quais dados?"
 .Dado
 .Jogo
 .Cartela
+.jogador
