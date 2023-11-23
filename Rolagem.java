@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
 public class Rolagem {
-	
+	static Scanner teclado = new Scanner(System.in);
 	public static boolean menuJogo(){
-		Scanner teclado = new Scanner(System.in);
+	
 		
 		int[] dadoD = new int[6];
 		int[] dadosParaRerolar = new int[6];
@@ -36,7 +36,7 @@ public class Rolagem {
 		dadosParaRerolar[4] = dadoD[4];
 		dadosParaRerolar[5] = dadoD[5];
 		
-		System.out.println("Deseja rerolar algum dado? digite 1 para sim e 0 para n√£o");
+		System.out.println("Deseja rerolar algum dado? digite 1 para sim e 0 para n„o");
 		dadoRerolado1 = teclado.nextInt();
 		if(dadoRerolado1 == 1){
 			int cont = 0;
@@ -60,16 +60,17 @@ public class Rolagem {
 		System.out.println("Dados Rerolados: "+dadosParaRerolar[4]);
 		System.out.println("Dados Rerolados: "+dadosParaRerolar[5]);
 		
-		menu1(dadosParaRerolar);
+		int opcao = 0;
+		
+		menu1(opcao, dadosParaRerolar);
+		
 		
 		return(true);
 	}
 	
-	public static void menu1(int dadosParaRerolar[]){
-		int opcao;
-		int tabelaPontos[] = new int[14];
-		Scanner teclado = new Scanner(System.in);
-		
+	public static void menu1(int opcao, int dadosParaRerolar[]){
+		 
+			 
 			 System.out.println("\n1 - Soma dos dados com face 1");
 			 System.out.println("2 - Soma dos dados com face 2");
 			 System.out.println("3 - Soma dos dados com face 3");
@@ -82,8 +83,24 @@ public class Rolagem {
 			 System.out.println("10 - Sequencia curta(4 faces de dados em sequencia)");
 			 System.out.println("11 - Sequencia longa(5 faces de dados em sequencia)");
 			 System.out.println("12 - Yahtzee(5 dados com faces iguais)");
-			 System.out.println("13 - Qualquer combinacao de dados");
+			 System.out.println("13 - Sorte (Qualquer combinacao de dados)");
+			 
+			 System.out.println("Qual deseja escolher?");
 			 opcao = teclado.nextInt();
+			 tabelaDePontuacao(opcao, dadosParaRerolar);
+			 
+	
+	}
+	
+	public static void tabelaDePontuacao(int opcao, int dadosParaRerolar[]){
+			 
+		 
+		 	 
+			 int tabelaPontos[] = new int[14];
+			 
+			 
+			 
+			 
 			 
 			 switch(opcao) {
 			 case 1:
@@ -95,7 +112,7 @@ public class Rolagem {
 						}
 					}
 					tabelaPontos[1] = contador;
-					 System.out.println("O valor √©: "+tabelaPontos[1]);
+					 System.out.println("O valor È: "+tabelaPontos[1]);
 					 break;
 			 case 2:
 				 //soma das faces com numero 2
@@ -106,8 +123,8 @@ public class Rolagem {
 						}
 					}
 					tabelaPontos[2] = contador2*2;
-					 System.out.println("O valor √©: "+tabelaPontos[2]);
-					 break;
+					System.out.println("O valor È: "+tabelaPontos[2]);
+					 
 			 case 3:
 				 //soma das faces com numero 3
 				 int contador3 = 0;
@@ -117,7 +134,7 @@ public class Rolagem {
 						}
 					}
 					tabelaPontos[3] = contador3*3;
-					 System.out.println("O valor √©: "+tabelaPontos[3]);
+					 System.out.println("O valor È: "+tabelaPontos[3]);
 					 break;
 			 case 4:
 				 // soma das faces com numero 4
@@ -128,7 +145,7 @@ public class Rolagem {
 						}
 					}
 					tabelaPontos[4] = contador4*4;
-					 System.out.println("O valor √©: "+tabelaPontos[4]);
+					 System.out.println("O valor È: "+tabelaPontos[4]);
 					 break;
 			 case 5:
 				 //soma das faces com numero 5
@@ -139,7 +156,7 @@ public class Rolagem {
 						}
 					}
 					tabelaPontos[5] = contador5*5;
-					 System.out.println("O valor √©: "+tabelaPontos[5]);
+					 System.out.println("O valor È: "+tabelaPontos[5]);
 					 break;
 			 case 6:
 				 // soma das faces com numero 6
@@ -150,13 +167,12 @@ public class Rolagem {
 						}
 					}
 					tabelaPontos[6] = contador6*6;
-					 System.out.println("O valor √©: "+tabelaPontos[6]);
+					 System.out.println("O valor È: "+tabelaPontos[6]);
 					 break;
 			 case 7:
 				 // tres dados precisam ter faces iguais, soma de todos 
 				 int numComparativo;
 				 int quant1 = 0, quant2 = 0, quant3 = 0, quant4 = 0, quant5 = 0, quant6 = 0;
-				 int numIguais = 0;
 				 int contador7 = 0;
 				 int contador71 = 0;
 				 for(int i = 0; i<6; i++) {
@@ -185,9 +201,10 @@ public class Rolagem {
 					 }
 					 tabelaPontos[7] = contador71;
 				 }else {
-					 System.out.println("N√£o h√° 3 faces iguais");
+					 System.out.println("N„o h· 3 faces iguais");
+					 menu1(opcao, dadosParaRerolar);
 				 }
-				 
+				 System.out.println("O valor È: "+tabelaPontos[7]);
 				break;
 			 case 8:
 				 // quatro dados precisam ter faces iguais, soma de todos 
@@ -221,12 +238,50 @@ public class Rolagem {
 					 }
 					 tabelaPontos[8] = contador81;
 				 }else{
-					 System.out.println("N√£o h√° 4 faces iguais");
+					 System.out.println("N„o h· 4 faces iguais");
+					 menu1(opcao, dadosParaRerolar);
 				 }
-				 
+				 System.out.println("O valor È: "+tabelaPontos[8]);
 				break;
 				 
 			 case 9: 
+				 boolean tripla = false, par = false;
+				 int numComparativo3;
+				 int quant12 = 0, quant23 = 0, quant34 = 0, quant45 = 0, quant56 = 0, quant67 = 0;
+				 for(int i = 0; i<6; i++) {
+					 numComparativo3 = dadosParaRerolar[i];
+					 if(numComparativo3 == 1) {
+						 quant12++;
+					 }else if(numComparativo3 == 2){
+						 quant23++;
+					 }else if(numComparativo3 == 3) {
+						 quant34++;
+					 }else if(numComparativo3 == 4) {
+						 quant45++;
+					 }else if(numComparativo3 == 5) {
+						 quant56++;
+					 }else if(numComparativo3 == 6) {
+						 quant67++;
+					 }
+				 }
+				 if(quant12 == 3 || quant23 == 3 || quant34 == 3|| quant45 == 3|| quant56 == 3 || quant67 == 3){
+					 tripla = true;
+				 }else{
+					 tripla = false;
+				 }
+				 if(quant12 == 2 || quant23 == 2 || quant34 == 2|| quant45 == 2|| quant56 == 2 || quant67 == 2){
+					 par = true;
+				 }else{
+					 par = false;
+				 }
+				 if(tripla == true && par == true){
+					 tabelaPontos[9] = 25;
+					 System.out.println("O valor È: "+tabelaPontos[9]);
+				 }else{
+					 System.out.println("N„o h· um full house!");
+					 menu1(opcao, dadosParaRerolar);
+				 }
+				 
 				break;
 			 case 10:
 				 // short straight (1, 2, 3, 4; 2, 3, 4, 5; 3, 4, 5, 6;)
@@ -248,8 +303,12 @@ public class Rolagem {
 							tabelaPontos[10] = 30;
 				 }else if(dadosParaRerolar[2] == 3 && dadosParaRerolar[3] == 4 && dadosParaRerolar[4] == 5 && dadosParaRerolar[5]==6) {
 							tabelaPontos[10] = 30;
+				 }else{
+					 System.out.println("N„o È uma sequÍncia curta!");
+					 menu1(opcao, dadosParaRerolar);
 				 }
 				 tabelaPontos[10] = 30;
+				 System.out.println("O valor È: "+tabelaPontos[10]);
 				 break;
 			 case 11:
 				// long straight (1, 2, 3, 4, 5 ou 2, 3, 4, 5, 6)
@@ -265,28 +324,31 @@ public class Rolagem {
 				 }else if(dadosParaRerolar[1]==2 && dadosParaRerolar[2]==3 && dadosParaRerolar[3]==4 && dadosParaRerolar[4]==5
 						 && dadosParaRerolar[5]==6) {
 					 tabelaPontos[11] = 40;
+					 System.out.println("O valor È: "+tabelaPontos[11]);
+				 }else{
+					 System.out.println("N„o È uma sequÍncia longa!");
 				 }
 				 break;
 			 case 12:
 				// cinco dados precisam ter faces iguais, soma de todos 
-				 int numComparativo3;
+				 int numComparativo4;
 				 int contador12 = 0;
 				 int contadorDoze = 0;
 				 int quant111 = 0, quant222 = 0, quant333 = 0, quant444 = 0, quant555 = 0, quant666 = 0;
 				 
 				 for(int i = 0; i<6; i++) {
-					 numComparativo3 = dadosParaRerolar[i];
-					 if(numComparativo3 == 1) {
+					 numComparativo4 = dadosParaRerolar[i];
+					 if(numComparativo4== 1) {
 						 quant111++;
-					 }else if(numComparativo3 == 2){
+					 }else if(numComparativo4 == 2){
 						 quant222++;
-					 }else if(numComparativo3 == 3) {
+					 }else if(numComparativo4 == 3) {
 						 quant333++;
-					 }else if(numComparativo3 == 4) {
+					 }else if(numComparativo4 == 4) {
 						 quant444++;
-					 }else if(numComparativo3 == 5) {
+					 }else if(numComparativo4 == 5) {
 						 quant555++;
-					 }else if(numComparativo3 == 6) {
+					 }else if(numComparativo4 == 6) {
 						 quant666++;
 					 }
 					 
@@ -299,8 +361,10 @@ public class Rolagem {
 					 }
 					 tabelaPontos[12] = contadorDoze;
 				 }else{
-					 System.out.println("N√£o h√° 5 faces iguais");
+					 System.out.println("N„o h· 5 faces iguais");
+					 menu1(opcao, dadosParaRerolar);
 				 }
+				 System.out.println("O valor È: "+tabelaPontos[12]);
 				 break;
 			 case 13:
 				 // sorte (soma de todos os numeros)
@@ -310,15 +374,21 @@ public class Rolagem {
 					if(dadosParaRerolar[i]>0) {
 						contadorSorte = dadosParaRerolar[i];
 						contadorSorte2 = contadorSorte2 + contadorSorte;
+						
 					}
 				 }
-				 System.out.println("O valor √©: "+contadorSorte2);
+				 tabelaPontos[13] = contadorSorte2;
+				 System.out.println("O valor È: "+contadorSorte2);
 					break;
 			 default:
 				 System.out.println("Opcao invalida");
+				 menu1(opcao, dadosParaRerolar);
+				 
 			 }
+			
+			
 			 
-		
 	}
+
 
 }
