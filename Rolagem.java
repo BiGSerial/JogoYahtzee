@@ -43,7 +43,7 @@ public class Rolagem {
 			while(cont !=6){
 			System.out.println("Quais dados deseja rerolar? digite 1-5 para escolher e 6 para encerrar sua escolha");
 			cont = teclado.nextInt();
-			if(cont == 6{
+			if(cont == 6){
 				break;
 			}
 			dadosRerolando = cont;
