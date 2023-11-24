@@ -40,17 +40,17 @@ public class Rolagem {
 		dadoRerolado1 = teclado.nextInt();
 		if(dadoRerolado1 == 1){
 			int cont = 0;
-			while(cont !=5){
+			while(cont !=6){
 			System.out.println("Quais dados deseja rerolar? digite 0-4 para escolher e 5 para encerrar sua escolha");
 			cont = teclado.nextInt();
-			if(cont == 5){
+			if(cont == 6{
 				break;
 			}
 			dadosRerolando = cont;
 			
 					int i = dadosRerolando;
 					d1.rolar();
-					dadosParaRerolar[i] = d1.getValor();
+					dadosParaRerolar[i-1] = d1.getValor();
 			}
 		}
 		System.out.println("Dados Rerolados: "+dadosParaRerolar[0]);
