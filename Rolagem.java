@@ -123,7 +123,7 @@ public class Rolagem {
 					}
 					tabelaPontos[2] = contador2*2;
 					System.out.println("O valor é: "+tabelaPontos[2]);
-					 
+					break;
 			 case 3:
 				 //soma das faces com numero 3
 				 int contador3 = 0;
