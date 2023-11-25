@@ -40,6 +40,10 @@ public class Rolagem {
 		System.out.println("Deseja rerolar algum dado? digite 1 para sim e 0 para não");
 		dadoRerolado1 = teclado.nextInt();
 		if(dadoRerolado1 == 1){
+			int contadorWhile = 0;
+
+			for(int t = 0; t<3; t++){
+			contadorWhile++;
 			int cont = 0;
 			while(cont !=6){
 			System.out.println("Quais dados deseja rerolar? digite 1-5 para escolher e 6 para encerrar sua escolha");
@@ -53,12 +57,22 @@ public class Rolagem {
 					d1.rolar();
 					dadosParaRerolar[i-1] = d1.getValor();
 			}
+			System.out.println("Dados Rerolados: "+dadosParaRerolar[0]);
+			System.out.println("Dados Rerolados: "+dadosParaRerolar[1]);
+			System.out.println("Dados Rerolados: "+dadosParaRerolar[2]);
+			System.out.println("Dados Rerolados: "+dadosParaRerolar[3]);
+			System.out.println("Dados Rerolados: "+dadosParaRerolar[4]);
+			
+			if(contadorWhile == 2) {
+				break;
+			}
+			System.out.println("Deseja rerolar algum dado novamente? 1 para sim, 2 para não");
+			cont = teclado.nextInt();
+			if(cont == 2) {
+				break;
+			}
 		}
-		System.out.println("Dados Rerolados: "+dadosParaRerolar[0]);
-		System.out.println("Dados Rerolados: "+dadosParaRerolar[1]);
-		System.out.println("Dados Rerolados: "+dadosParaRerolar[2]);
-		System.out.println("Dados Rerolados: "+dadosParaRerolar[3]);
-		System.out.println("Dados Rerolados: "+dadosParaRerolar[4]);
+		}
 		
 		int opcao = 0;
 		int[] tabelaPontos = new int[15];
