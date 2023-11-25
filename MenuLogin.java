@@ -1,15 +1,29 @@
 package jogo;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.PrintWriter;
+import java.io.*;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
 
 public class MenuLogin {
-	 static Scanner entrada = new Scanner(System.in);
+
+    private static final String USERS_FILE_PATH = "LoginSenha.txt";    
+
+    static {
+        File file = new File(USERS_FILE_PATH);
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+	static Scanner entrada = new Scanner(System.in);
+    
     public static boolean menu() {
     	ProgramaPrincipal menuPrincipal = new ProgramaPrincipal();
-    	
-    	int tentativa=0;
+ 
         while (true) {
             System.out.print("\n----------\n"
             		+ "\n1. Login"
@@ -24,7 +38,6 @@ public class MenuLogin {
                     //jogo.jogo(); -> entrar no jogo
                     break;
                 }else {
-                	tentativa++;
                     System.out.println("Login inválido, se não tiver tente se cadastrar!");
                     menu();   
                 }
@@ -62,14 +75,14 @@ public class MenuLogin {
         Scanner scanner = null; // entrada via arquivo
 
         try {
-            FileReader fr = new FileReader("LoginSenha.txt");
+            FileReader fr = new FileReader(USERS_FILE_PATH);
             scanner = new Scanner(fr);
 
             while (scanner.hasNext()) {
                 linha = scanner.nextLine();
                 infoFunc = linha.split("/");
 
-                if (nome.equals(infoFunc[0]) && senha.equals(infoFunc[1])) {
+                if (infoFunc[0].equals(nome) && infoFunc[1].equals(hashPassword(infoFunc[0]+senha))) {
                     resultado = true;
                     break; 
                 }
@@ -90,7 +103,7 @@ public class MenuLogin {
 
         try {
             // CRIA O ARQUIVO
-            FileWriter arquivoLogin = new FileWriter("LoginSenha.txt", true);
+            FileWriter arquivoLogin = new FileWriter(USERS_FILE_PATH, true);
 
             // ESCREVE NO ARQUIVO
             infoLogin = new PrintWriter(arquivoLogin);
@@ -101,7 +114,7 @@ public class MenuLogin {
             nome = entrada.nextLine();
             System.out.print("\nSenha: ");
             senha = entrada.nextLine();
-            infoLogin.println(nome + "/" + senha);
+            infoLogin.println(nome + "/" + hashPassword(nome + senha));
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -111,6 +124,28 @@ public class MenuLogin {
             }
         }
         System.out.println("Cadastro feito com sucesso ");
+    }
+
+    private static String hashPassword(String password) {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hashedBytes = digest.digest(password.getBytes());
+
+            // Converter bytes para representação hexadecimal
+            StringBuilder hexString = new StringBuilder();
+            for (byte b : hashedBytes) {
+                String hex = Integer.toHexString(0xff & b);
+                if (hex.length() == 1) {
+                    hexString.append('0');
+                }
+                hexString.append(hex);
+            }
+
+            return hexString.toString();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }
 
