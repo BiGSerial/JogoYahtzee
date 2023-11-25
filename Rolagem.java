@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Rolagem {
 	static Scanner teclado = new Scanner(System.in);
-	public static void menuJogo(){
+	public static int[] menuJogo(){
 	
 		
 		int[] dadoD = new int[5];
@@ -204,7 +204,7 @@ public class Rolagem {
 			menu1(opcao, dadosParaRerolar, tabelaPontos);
 			}
 
-		
+		return(tabelaPontos);
 	}
 	
 	public static void menu1(int opcao, int dadosParaRerolar[], int tabelaPontos[]){
