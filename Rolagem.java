@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Rolagem {
 	static Scanner teclado = new Scanner(System.in);
-	public boolean menuJogo(){
+	public static void menuJogo(){
 	
 		
 		int[] dadoD = new int[5];
@@ -61,7 +61,7 @@ public class Rolagem {
 		System.out.println("Dados Rerolados: "+dadosParaRerolar[4]);
 		
 		int opcao = 0;
-		int[] tabelaPontos = new int[14];
+		int[] tabelaPontos = new int[15];
 	
 		
 	
@@ -72,7 +72,7 @@ public class Rolagem {
  
 
  
-	 // soma das faces com numero 1
+	 // soma das faces com numero 1, 2, 3, 4, 5 e 6
 	 	int contador = 0, contador2 = 0, contador3 = 0, contador4 =0, contador5 = 0, contador6 = 0, contador7 = 0, contador71 = 0;
 	 	int contador8 = 0, contador81 = 0;
 		for(int i = 0; i<5; i++){
@@ -94,6 +94,7 @@ public class Rolagem {
 			if(dadosParaRerolar[i] == 6) {
 				contador6++;
 		}
+			//3 faces iguais
 		    if(contador >= 3 || contador2 >= 3 || contador3 >= 3 || contador4 >= 3 || contador5>= 3 ||contador6>= 3){
 				 for(int j = 0; j<5; j++) {
 					 
@@ -103,6 +104,7 @@ public class Rolagem {
 				 }
 				 tabelaPontos[7] = contador71;
 			}
+		    // 4 faces iguais
 			if(contador >=4 || contador2 >= 4 || contador3 >= 4 || contador4 >= 4 || contador5 >= 4 || contador6 >= 4) {
 				 for(int k = 0; k<5; k++) {
 					 contador8 = dadosParaRerolar[k];
@@ -111,7 +113,7 @@ public class Rolagem {
 				 }
 				 tabelaPontos[8] = contador81;
 		}
-					
+			// full house, 3 faces iguais + 2 faces iguais(1 triplo + 1 par)
 	 boolean tripla = false, par = false;
 	 if(contador == 3 || contador2 == 3 || contador3 == 3|| contador4 == 3|| contador5 == 3 || contador6 == 3){
 		 tripla = true;
@@ -195,14 +197,14 @@ public class Rolagem {
 			bonus = 0;
 		}
 		tabelaPontos[14] = bonus;
-		//acima fica a aplicacao do valor do bonus. se for valido tera valor de 35 adicionado.
+		//acima fica a aplicacao do valor do bonus. se for valido tera valor de 35 pontos adicionado.
 		
 		//repeticao do comando que oferece as jogadas ao jogador
 		for(int i = 0; i < 2; i++){
 			menu1(opcao, dadosParaRerolar, tabelaPontos);
 			}
 
-		return(true);
+		
 	}
 	
 	public static void menu1(int opcao, int dadosParaRerolar[], int tabelaPontos[]){
