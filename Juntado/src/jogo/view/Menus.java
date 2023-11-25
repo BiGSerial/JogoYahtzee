@@ -1,6 +1,7 @@
 package jogo.view;
 
 import java.util.Scanner;
+import jogo.controller.*;
 
 public class Menus {
 
@@ -23,22 +24,20 @@ public class Menus {
             System.out.println("2. Cadastrar");
             System.out.println("0. Sair");            
             
-           
-
             switch (capturarEscolha()) {
                 case 1:
                     System.out.println("Obrigado por Jogar conosco.");
                     break;
                 case 2:
-                    System.out.println("Obrigado por Jogar conosco.");
+                    limparTela();
+                    LoginController.cadastro();
                     break;
                 case 0:
                     limparTela();
                     System.out.println("Obrigado por Jogar conosco.");
                     executarJogo = false;
                     break;
-                default:
-                    
+                default:                    
                     System.out.println("Opção Inválida.");
                     break;                
             }
@@ -49,5 +48,10 @@ public class Menus {
 
     public static void limparTela() {
         for (int i = 0; i < 50; ++i) System.out.println(); // Simula uma "limpeza" da tela
+    }
+
+    public static void MenuLogin()
+    {
+
     }
 }
