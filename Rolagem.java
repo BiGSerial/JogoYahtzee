@@ -37,7 +37,7 @@ public class Rolagem {
 		dadosParaRerolar[4] = dadoD[4];
 		
 		
-		System.out.println("Deseja rerolar algum dado? digite 1 para sim e 0 para n„o");
+		System.out.println("Deseja rerolar algum dado? digite 1 para sim e 0 para n√£o");
 		dadoRerolado1 = teclado.nextInt();
 		if(dadoRerolado1 == 1){
 			int cont = 0;
@@ -68,7 +68,7 @@ public class Rolagem {
  
  
  
- // a partir dessa linha È cÛdigo para contar os pontos
+ // a partir dessa linha √© c√≥digo para contar os pontos
  
 
  
@@ -184,7 +184,20 @@ public class Rolagem {
 		tabelaPontos[6] = contador6*6;
 		// aqui acaba as linhas de contar ponto
 		
+		//verificacao da validade do bonus
+		int bonus = 0, contBonus = 0;
+		for(int i = 0; i <7; i++) {
+			contBonus = contBonus + tabelaPontos[i];
+		}
+		if(contBonus >= 63) {
+			bonus = 35;
+		}else {
+			bonus = 0;
+		}
+		tabelaPontos[14] = bonus;
+		//acima fica a aplicacao do valor do bonus. se for valido tera valor de 35 adicionado.
 		
+		//repeticao do comando que oferece as jogadas ao jogador
 		for(int i = 0; i < 2; i++){
 			menu1(opcao, dadosParaRerolar, tabelaPontos);
 			}
@@ -209,7 +222,7 @@ public class Rolagem {
 			 System.out.println("Valor dessa jogada: "+tabelaPontos[6]);
 			 System.out.println("7 - Soma de todos os dados(Minimo de tres dados com faces iguais)");
 			 System.out.println("Valor dessa jogada: "+tabelaPontos[7]);
-			 System.out.println("8 - Soma de todos os dados(Minimo de quatro dados com faces iguais");
+			 System.out.println("8 - Soma de todos os dados(Minimo de quatro dados com faces iguais)");
 			 System.out.println("Valor dessa jogada: "+tabelaPontos[8]);
 			 System.out.println("9 - Full house");
 			 System.out.println("Valor dessa jogada: "+tabelaPontos[9]);
