@@ -24,19 +24,12 @@ public class Tabela {
 
             infotabela = new PrintWriter(arquivotabela);
 
-            
+            int [] pontos = Jogador.ponto();
             infotabela.println("Nome | P1 | P2 | P3 | P4 | P5 | P6 | BONUS | P7 | P8 | P9 | P10 | P11 | 12 | 13 | TOTAL");
-            for (int n = 0; n < listaPontos.size(); n++) {
-                int[] pontos = listaPontos.get(n);
-                
-                StringBuilder linhaPontos = new StringBuilder();
-                for (int i = 0; i < pontos.length; i++) {
-                	
-                    linhaPontos.append(ponto).append(" | ");
-                }
-
-                infotabela.println(linhaPontos.toString()); 
-            }
+            infotabela.print("\n");
+            for (int n=0;n<=13;n++){           	
+            	infotabela.print(pontos[n]+"/");
+		     }
         } catch (Exception e) {
             System.err.println("ERRO");
         } finally {
