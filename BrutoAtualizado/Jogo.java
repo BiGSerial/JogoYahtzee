@@ -13,7 +13,7 @@ public class Jogo {
 		String nomej1 = jogador1.nome();
 		String nomej2 = jogador2.nome();
 		
-		for(int p=0; p<=1;p++) {
+		for(int p=0; p<=26;p++) {
 			System.out.println("Vez do "+nomej1);
 			jogador1.ponto();
 			System.out.println("Vez do "+nomej2);
