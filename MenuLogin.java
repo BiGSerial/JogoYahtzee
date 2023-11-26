@@ -5,8 +5,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
 
 public class MenuLogin {
-
-    private static final String USERS_FILE_PATH = "LoginSenha.txt";    
+private static final String USERS_FILE_PATH = "LoginSenha.txt";    
 
     static {
         File file = new File(USERS_FILE_PATH);
@@ -21,7 +20,7 @@ public class MenuLogin {
 
 	static Scanner entrada = new Scanner(System.in);
     
-    public static boolean menu() {
+    public static void menu() {
     	ProgramaPrincipal menuPrincipal = new ProgramaPrincipal();
  
         while (true) {
@@ -33,19 +32,16 @@ public class MenuLogin {
             int opcao = entrada.nextInt();
             
             if (opcao == 1) {
-                if (login()==true) {
-                    System.out.print("\nVocê tem login"); 
-                    //jogo.jogo(); -> entrar no jogo
+                if (login()==true) {             
+                    Rolagem.menuJogo();
                     break;
                 }else {
                     System.out.println("Login inválido, se não tiver tente se cadastrar!");
                     menu();   
                 }
-                return true;
             } else if (opcao == 2) {
             	cadastro();
             	
-                return true;
             }else if(opcao == 3){
             	menuPrincipal.menuInicial();
             	System.out.println("Obrigada por jogar!");
@@ -56,7 +52,6 @@ public class MenuLogin {
                 break;
             }
         }
-		return false;
     }
 
     public static boolean login() {
@@ -65,14 +60,14 @@ public class MenuLogin {
 
         System.out.println("\n---Login---");
         System.out.print("\nNome: ");
-        entrada.nextLine(); // Consumir a quebra de linha pendente
+        entrada.nextLine();
         nome = entrada.nextLine();
         System.out.print("\nSenha: ");
         senha = entrada.nextLine();
 
         String linha;
         String infoFunc[];
-        Scanner scanner = null; // entrada via arquivo
+        Scanner scanner = null; 
 
         try {
             FileReader fr = new FileReader(USERS_FILE_PATH);
@@ -97,15 +92,13 @@ public class MenuLogin {
         return resultado;
     }
 
-    public static void cadastro() {
-        String nome, senha;
+    public static String cadastro() {
+        String nome="", senha;
         PrintWriter infoLogin = null;
 
         try {
-            // CRIA O ARQUIVO
             FileWriter arquivoLogin = new FileWriter(USERS_FILE_PATH, true);
 
-            // ESCREVE NO ARQUIVO
             infoLogin = new PrintWriter(arquivoLogin);
 
             System.out.println("---Cadastro---");
@@ -124,6 +117,8 @@ public class MenuLogin {
             }
         }
         System.out.println("Cadastro feito com sucesso ");
+		return nome;
+		
     }
 
     private static String hashPassword(String password) {
@@ -131,7 +126,6 @@ public class MenuLogin {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
             byte[] hashedBytes = digest.digest(password.getBytes());
 
-            // Converter bytes para representação hexadecimal
             StringBuilder hexString = new StringBuilder();
             for (byte b : hashedBytes) {
                 String hex = Integer.toHexString(0xff & b);
@@ -140,12 +134,12 @@ public class MenuLogin {
                 }
                 hexString.append(hex);
             }
-
+            
             return hexString.toString();
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
             return null;
         }
+        
     }
 }
-
