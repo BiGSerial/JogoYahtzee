@@ -89,9 +89,10 @@ public class Rolagem {
 	 // soma das faces com numero 1, 2, 3, 4, 5 e 6
 	 	int contador = 0, contador2 = 0, contador3 = 0, contador4 =0, contador5 = 0, contador6 = 0, contador7 = 0, contador71 = 0;
 	 	int contador8 = 0, contador81 = 0;
-		for(int i = 0; i<5; i++){
-			if(dadosParaRerolar[i] == 1) {
+		for(int i = 0; i<5; i++) {
+				if(dadosParaRerolar[i] == 1) {
 				contador++;
+				
 			}
 			if(dadosParaRerolar[i] == 2) {
 				contador2++;
@@ -190,8 +191,9 @@ public class Rolagem {
 	 
 		
 
-	 }		 
-}
+ 			}		 
+		}
+	 
 		tabelaPontos[1] = contador;
 		tabelaPontos[2] = contador2*2;
 		tabelaPontos[3] = contador3*3;
@@ -213,47 +215,151 @@ public class Rolagem {
 		tabelaPontos[14] = bonus;
 		//acima fica a aplicacao do valor do bonus. se for valido tera valor de 35 pontos adicionado.
 		
+		
+		//teste de codigo para invalidar jogadas duplas
+		
+		
+		
+		
 		//repeticao do comando que oferece as jogadas ao jogador
-		for(int i = 0; i < 2; i++){
+		
 			menu1(opcao, dadosParaRerolar, tabelaPontos);
-			}
+			
 
 		return(tabelaPontos);
 	}
 	
 	public static void menu1(int opcao, int dadosParaRerolar[], int tabelaPontos[]){
-		 
+		
+			do {
+			int contadorJogada1 = 0, contadorJogada2 = 0, contadorJogada3 = 0, contadorJogada4 = 0, contadorJogada5 = 0; 
+			int contadorJogada6 = 0, contadorJogada7 = 0, contadorJogada8 = 0, contadorJogada9 = 0, contadorJogada10 = 0;
+			int contadorJogada11 = 0, contadorJogada12 = 0, contadorJogada13 = 0;
+			
+
+			if(opcao == 1) {
+			 contadorJogada1++;
+				}
+			if(opcao == 2) {
+				 contadorJogada2++;
+					}
+			if(opcao == 3) {
+				 contadorJogada3++;
+					}
+			if(opcao == 4) {
+				 contadorJogada4++;
+					}
+			if(opcao == 5) {
+				 contadorJogada5++;
+					}
+			if(opcao == 6) {
+				 contadorJogada6++;
+					}
+			if(opcao == 7) {
+				 contadorJogada7++;
+					}
+			if(opcao == 8) {
+				 contadorJogada8++;
+					}
+			if(opcao == 9) {
+				 contadorJogada9++;
+					}
+			if(opcao == 10) {
+				 contadorJogada10++;
+					}
+			if(opcao == 11) {
+				 contadorJogada11++;
+					}
+			if(opcao == 12) {
+				 contadorJogada12++;
+					}
+			if(opcao == 13) {
+				 contadorJogada13++;
+					}
 			
 			 System.out.println("\n1 - Soma dos dados com face 1");
+			 if(contadorJogada1 >= 1) {
+				 System.out.println("Jogada inválida!");
+			 }else {
 			 System.out.println("Valor dessa jogada: "+tabelaPontos[1]);
+			 }
 			 System.out.println("2 - Soma dos dados com face 2");
+			if(contadorJogada2 >= 1) {
+				 System.out.println("Jogada inválida!");
+			 }else {
 			 System.out.println("Valor dessa jogada: "+tabelaPontos[2]);
+			 }
 			 System.out.println("3 - Soma dos dados com face 3");
+			 if(contadorJogada3 >= 1) {
+				 System.out.println("Jogada inválida!");
+			 }else {
 			 System.out.println("Valor dessa jogada: "+tabelaPontos[3]);
+			 }
 			 System.out.println("4 - Soma dos dados com face 4");
+			 if(contadorJogada4 >= 1) {
+				 System.out.println("Jogada inválida!");
+			 }else {
 			 System.out.println("Valor dessa jogada: "+tabelaPontos[4]);
+			 }
 			 System.out.println("5 - Soma dos dados com face 5");
+			 if(contadorJogada5 >= 1) {
+				 System.out.println("Jogada inválida!");
+			 }else {
 			 System.out.println("Valor dessa jogada: "+tabelaPontos[5]);
+			 }
 			 System.out.println("6 - Soma dos dados com face 6");
+			 if(contadorJogada6 >= 1) {
+				 System.out.println("Jogada inválida!");
+			 }else {
 			 System.out.println("Valor dessa jogada: "+tabelaPontos[6]);
+			 }
 			 System.out.println("7 - Soma de todos os dados(Minimo de tres dados com faces iguais)");
+			 if(contadorJogada7 >= 1) {
+				 System.out.println("Jogada inválida!");
+			 }else {
 			 System.out.println("Valor dessa jogada: "+tabelaPontos[7]);
+			 }
 			 System.out.println("8 - Soma de todos os dados(Minimo de quatro dados com faces iguais)");
+			 if(contadorJogada8 >= 1) {
+				 System.out.println("Jogada inválida!");
+			 }else {
 			 System.out.println("Valor dessa jogada: "+tabelaPontos[8]);
+			 }
 			 System.out.println("9 - Full house");
+			 if(contadorJogada9 >= 1) {
+				 System.out.println("Jogada inválida!");
+			 }else {
 			 System.out.println("Valor dessa jogada: "+tabelaPontos[9]);
+			 }
 			 System.out.println("10 - Sequencia curta(4 faces de dados em sequencia)");
+			 if(contadorJogada10 >= 1) {
+				 System.out.println("Jogada inválida!");
+			 }else {
 			 System.out.println("Valor dessa jogada: "+tabelaPontos[10]);
+			 }
 			 System.out.println("11 - Sequencia longa(5 faces de dados em sequencia)");
+			 if(contadorJogada11 >= 1) {
+				 System.out.println("Jogada inválida!");
+			 }else {
 			 System.out.println("Valor dessa jogada: "+tabelaPontos[11]);
+			 }
 			 System.out.println("12 - Yahtzee(5 dados com faces iguais)");
+			 if(contadorJogada12 >= 1) {
+				 System.out.println("Jogada inválida!");
+			 }else {
 			 System.out.println("Valor dessa jogada: "+tabelaPontos[12]);
+			 }
 			 System.out.println("13 - Sorte (Qualquer combinacao de dados)");
+			 if(contadorJogada13 >= 1) {
+				 System.out.println("Jogada inválida!");
+			 }else {
 			 System.out.println("Valor dessa jogada: "+tabelaPontos[13]);
+			 }
+			 System.out.println("Digite 0 para sair.");
 			 
 			 System.out.println("Qual deseja escolher?");
 			 opcao = teclado.nextInt();
-			 
+			}while(opcao != 0);
 			 
 	
 	}
