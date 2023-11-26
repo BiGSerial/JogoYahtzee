@@ -12,13 +12,13 @@ public class ProgramaPrincipal {
 		
 		int opcao = menuInicial();
 		
-		while (true){
+		do{
 			switch (opcao) {
 			case 1:
 				MenuLogin.menu(); 
 				break;
 			case 2:
-				System.out.println("pontuacao!"); //Pontuacao();
+				 Tabela.mostrarTabela();
 				break;
 			case 0:
 				System.out.println("Obrigada por jogar!");
@@ -28,7 +28,7 @@ public class ProgramaPrincipal {
 				break; 
 			}
 			break;
-		}	
+		}while(opcao!=0);	
 	}
 	public static int menuInicial() {
 		
@@ -47,5 +47,4 @@ public class ProgramaPrincipal {
 		}
 		}
 	}
-
 }
