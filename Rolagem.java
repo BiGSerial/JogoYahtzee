@@ -178,21 +178,24 @@ public class Rolagem {
 	 }
  
 	 // sorte (soma de todos os numeros)
-	int contadorSorte = 0; 
-	int contadorSorte2 = 0;
-	 for(int l = 0; l<5; l++){
-		if(dadosParaRerolar[l]>0) {
-			contadorSorte = dadosParaRerolar[l];
-			contadorSorte2 = contadorSorte2 + contadorSorte;
+	
+	
 			
 		}
 	 }
+		int contadorSorte = 0; 
+		int contadorSorte2 = 0;
+		 for(int l = 0; l<5; l++){
+				if(dadosParaRerolar[l]>0) {
+					contadorSorte = dadosParaRerolar[l];
+					contadorSorte2 = contadorSorte2 + contadorSorte;
+				}
 	 tabelaPontos[13] = contadorSorte2;
 	 
 		
 
  			}		 
-		}
+		
 	 
 		tabelaPontos[1] = contador;
 		tabelaPontos[2] = contador2*2;
@@ -284,7 +287,7 @@ public class Rolagem {
 			 System.out.println("Valor dessa jogada: "+tabelaPontos[1]);
 			 }
 			 System.out.println("2 - Soma dos dados com face 2");
-			if(contadorJogada2 >= 1) {
+			 if(contadorJogada2 >= 1) {
 				 System.out.println("Jogada inválida!");
 			 }else {
 			 System.out.println("Valor dessa jogada: "+tabelaPontos[2]);
